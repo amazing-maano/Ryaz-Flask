@@ -6,77 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ryaz</title>
-    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Abhaya+Libre&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
-
-    <style>
-        body {
-            font-family: 'Abhaya Libre', serif;    
-            background-color: white;    
-	    display: grid;
-	    align-items: center;
-	    justify-content: center;
-	    height: 100vh;
-        }
-
-        div {
-	    width: 40rem;
-	    height: 22rem;
-        box-shadow: 5px 3px 30px rgba(0, 0, 0, .2);	
-	    border-radius: 5px;
-	    position: relative;
-	    z-index: 1;
-	    background-image: linear-gradient(315deg, #9fd2fb 0%, #cbe7fc 74%);
-        overflow: hidden;
-        text-align: center;
-        }   
-
-div:before {
-	content: "";
-	position: absolute;
-	background: inherit;
-	z-index: -1;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
-	filter: blur(20px);
-	margin: -20px;
-}
-
-h1{
-    color : #2350ce;
-	font-size: 2.5em;
-	text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
-}
-
-h2{
-    margin-top: 5%;
-    color: #ba77cc;
-}
-
-.fas{
-	margin: 2% auto;
-	color: #508c9f;
-	position: fixed;
-	left: 49%;
-	top: 57%;
-}
-
-.fas:hover {
-	color: #2350ce;
-}
-
-hr { 
-	display: block;
-	margin: 0.5em auto;
-	border-style: inset;
-	border-width: 1px;
-	width: 50%;
-}
-    </style>
     
 </head>
 
@@ -90,45 +22,5 @@ hr {
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type = "text/javascript" >
-
-        let namesArray = ['Inderpreet', 
-                        'Gauravjeet', 
-            'Vigasdeep', 
-            'Shaina', 
-            'Hemant', 
-            'Mandeep', 
-            'Harry', 
-            'Sahib', 
-            'Manii', 
-            'Nandini', 
-            'Kamal', 
-            'Rajvir'
-        ];
-
-        document.getElementById('cl').addEventListener('click', function(){
-        let names = namesArray.sort();
-  
-        let randomName = names[Math.floor(Math.random() * names.length)];
-
-        let res = document.getElementById('name');
-        res.style.fontSize = '2.5em';
-        res.innerHTML = randomName;
-
-        $.ajax({
-            url: 'sendName',
-            type: 'POST',
-            dataType: 'json',
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify(randomName),
-            success: function(response) {
-              console.log(response);
-            },
-            error: function(error) {
-              console.log(error);
-            }
-        })
-        event.preventDefault();
-        });
-    </script>
+    <script src="{{ url_for('static', filename="js/script.js")}}"></script>
 </body>

@@ -10,6 +10,7 @@ import json
 
 
 app = Flask(__name__)
+freezer = Freezer(app)
 
 mail_settings = {
     "MAIL_SERVER": 'smtp.gmail.com',
@@ -44,7 +45,7 @@ def sendEmail():
         
 
 if __name__ == '__main__':
-    app.run()
+    freezer.freeze()
     
     
 
